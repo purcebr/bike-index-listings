@@ -1,0 +1,38 @@
+/* This stylesheet is used to style the public view of the widget. */
+
+.bike-index-listings-class {
+
+}
+
+.bike-index-listings-class ul {
+
+}
+
+.bike-index-listings-class ul > li {
+	list-style: none;
+}
+
+.bike-index-listings-class ul > li img{
+	max-width: 100%;
+}
+
+.bike-index-listings-class .btn {
+	padding: 5px 0;
+	border: 1px solid #C0C0C0;
+	color: #7E7E7E;
+	border-radius: 5px;
+	display: block;
+	text-align: center;
+	margin:10px 0;
+	text-decoration: none;
+	-webkit-transition: color .5s ease-in-out,background .5s ease-in-out;
+	transition: color .5s ease-in-out,background .5s ease-in-out;
+}
+
+.bike-index-listings-class .btn:hover {
+	text-decoration: none;
+}
+
+.bike-title {
+	margin-bottom: 10px;
+}
