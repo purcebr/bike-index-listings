@@ -12,7 +12,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Bike Index Listings
- * Plugin URI:        @TODO
+ * Plugin URI:        @bikeindex.org
  * Description:       A Widget to show bikes registered with the Bike Index on your wp site.
  * Version:           1.0.0
  * Author:            Bryan Purcell
@@ -156,6 +156,7 @@ class Bike_Index_Listings extends WP_Widget {
 
 		$instance['title'] = strip_tags($new_instance['title']);
 
+		// fixed prior issue here that resulted in ZIPCODE never saving
 		if(strlen($new_instance['zipcode'])==5 && ctype_digit($new_instance['zipcode'])) {
 			$instance['zipcode'] = strip_tags($new_instance['zipcode']);
 		}
