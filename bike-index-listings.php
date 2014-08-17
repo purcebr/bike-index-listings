@@ -125,7 +125,7 @@ class Bike_Index_Listings extends WP_Widget {
 		$widget_string = $before_widget;
 
 		ob_start();
-		$bikes = $this->get_bikes($instance['zipcode'], $instance['radius'], $instance['max_bikes']);
+		$bikes = $this->get_bikes($instance['zipcode'], $instance['radius'], $instance['max_bikes'], $instance['stolenonly']);
 		include( plugin_dir_path( __FILE__ ) . 'views/widget.php' );
 		$widget_string .= ob_get_clean();
 		$widget_string .= $after_widget;
@@ -156,15 +156,18 @@ class Bike_Index_Listings extends WP_Widget {
 
 		$instance['title'] = strip_tags($new_instance['title']);
 
-		if(strlen($instance['zipcode'])==5 && ctype_digit($instance['zipcode'])) {
+		if(strlen($new_instance['zipcode'])==5 && ctype_digit($new_instance['zipcode'])) {
 			$instance['zipcode'] = strip_tags($new_instance['zipcode']);
 		}
-
+		
 		//if(ctype_digit($instance['radius'])) {
 		$instance['radius'] = strip_tags($new_instance['radius']);
 		//}
 
 		$instance['max_bikes'] = strip_tags($new_instance['max_bikes']);
+
+		if ($new_instance['stolenonly']=="on") {$instance['stolenonly'] = 1;} else {$instance['stolenonly'] = 0;}
+
 
 		return $instance;
 
@@ -265,13 +268,15 @@ class Bike_Index_Listings extends WP_Widget {
 
 	} // end register_widget_scripts
 
-	public function get_bikes($zip, $radius, $max_bikes) {
+	public function get_bikes($zip, $radius, $max_bikes, $stolenonly) {
+
 
 		$transient_var = 'bikeindex_' . $zip . '_' . $radius;
 		
 		//if ( false === ( $bikes = get_transient( $transient_var ) ) ) {
 		if ( true ) {
 			$data = array("zip" => $zip, "proximity_radius" => $radius);
+			if ($stolenonly==1) {$data = array("zip" => $zip, "proximity_radius" => $radius, "stolen" => "true");}
 			$action = 'bikes';
 			$req = $this->api->post_json($data, $action);
 			$bikes_response = json_decode($req);
