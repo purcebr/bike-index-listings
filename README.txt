@@ -1,9 +1,14 @@
 === Bike Index Stolen Bikes Widget ===
 
-This widget provides a way to easilly list bikes that have been registered with BikeIndex.org. 
-Its settings allow you to list bikes near you by geocoding off of your zipcode, and to either show 
-a mix of non-stolen/stolen bikes or to show only stolen bikes, depending on your needs.
+This widget provides a way to easilly list bicycles that have been registered with BikeIndex.org 
+on your own Wordpress site in easily manageable widget form.
 
+Settings allow you to list bikes closest to you by geocoding off of your zipcode, and to either show 
+a mix of non-stolen/stolen bikes or to show only stolen bikes, depending on your site's needs. It
+uses the BikeIndex.org API to quickly pull and display listings, and is CURL-dependent. 
+
+This widget is a great way to present a list of "stolen bicycles near you" to better serve your
+site visitors, and to help recover bikes with BikeIndex.org. 
 
 About BikeIndex.org:
 --------------------
