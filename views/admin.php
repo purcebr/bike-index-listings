@@ -11,3 +11,7 @@
 
 <label for="<?php echo $this->get_field_id( 'max_bikes' ); ?>"><?php _e( 'Maximum Bikes to Show (maximum 20):' ); ?></label> 
 <input class="widefat" id="<?php echo $this->get_field_id( 'max_bikes' ); ?>" name="<?php echo $this->get_field_name( 'max_bikes' ); ?>" type="text" value="<?php echo esc_attr( $max_bikes ); ?>">
+
+<!-- stolen only display checkbox added bhance 08-2014 -->
+<label for="<?php echo $this->get_field_id( 'stolenonly' ); ?>"><?php _e( 'Show stolen only?' ); ?></label>
+<input id="<?php echo $this->get_field_id('stolenonly'); ?>" name="<?php echo $this->get_field_name('stolenonly'); ?>" type="checkbox" <?php if (($instance['stolenonly'])==1) {?>checked<?}?> />
