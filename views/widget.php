@@ -1,5 +1,8 @@
-<h5><?php echo $instance['title']; ?>
-
+<h5><?php echo $instance['title']; ?></h5>
+<?php if(!$show_search) ?>
+  <div id="binx_stolen_widget" data-norecent="true"></div>
+  <script src="http://widget.bikeindex.org/include.js"></script>
+<?php endif; ?>
 <ul class="bike-index-listing">
 	<?php $counter = 0; ?>
 	<?php foreach($bikes as $bike): ?>
