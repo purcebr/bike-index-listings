@@ -12,7 +12,6 @@ class BikeIndexAPI {
   
   function post_json($data, $action, $method = "GET") {
     $formed_uri = $this->endpoint.'/'.$action;
-    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $formed_uri);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
